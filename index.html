@@ -1,1 +1,613 @@
-# Sey
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Personal Portfolio</title>
+
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+scroll-behavior: smooth;
+font-family: Arial, sans-serif;
+}
+
+:root {
+--pink: #ff69a8;
+--light-pink: #ffe6f0;
+--soft-pink: #fff5f9;
+--dark-pink: #d9367a;
+--white: #ffffff;
+--text: #333333;
+}
+
+body {
+background: var(--soft-pink);
+color: var(--text);
+line-height: 1.6;
+}
+
+/* NAVBAR */
+header {
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 1000;
+background: rgba(255,255,255,0.95);
+box-shadow: 0 2px 15px rgba(255,105,168,0.15);
+}
+
+nav {
+max-width: 1100px;
+margin: auto;
+padding: 18px 25px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+font-size: 24px;
+font-weight: bold;
+color: var(--dark-pink);
+}
+
+nav ul {
+list-style: none;
+display: flex;
+gap: 25px;
+}
+
+nav ul li a {
+text-decoration: none;
+color: var(--text);
+font-weight: bold;
+transition: 0.3s;
+}
+
+nav ul li a:hover {
+color: var(--pink);
+}
+
+/* HERO */
+#home {
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 100px 20px 50px;
+background: linear-gradient(135deg, #fff5f9, #ffe0ed);
+}
+
+.hero {
+max-width: 850px;
+}
+
+.profile-picture {
+width: 180px;
+height: 180px;
+object-fit: cover;
+border-radius: 50%;
+border: 7px solid white;
+box-shadow: 0 8px 30px rgba(217,54,122,0.25);
+margin-bottom: 25px;
+}
+
+.hero h1 {
+font-size: 55px;
+color: var(--dark-pink);
+margin-bottom: 10px;
+}
+
+.hero h2 {
+font-size: 24px;
+margin-bottom: 15px;
+}
+
+.hero p {
+max-width: 650px;
+margin: auto;
+font-size: 17px;
+}
+
+.button {
+display: inline-block;
+margin-top: 25px;
+padding: 12px 28px;
+background: var(--pink);
+color: white;
+text-decoration: none;
+border-radius: 30px;
+font-weight: bold;
+transition: 0.3s;
+}
+
+.button:hover {
+background: var(--dark-pink);
+transform: translateY(-3px);
+}
+
+/* GENERAL SECTIONS */
+section {
+padding: 90px 20px;
+}
+
+.container {
+max-width: 1000px;
+margin: auto;
+}
+
+.section-title {
+text-align: center;
+font-size: 36px;
+color: var(--dark-pink);
+margin-bottom: 45px;
+}
+
+/* ABOUT */
+#about {
+background: white;
+}
+
+.about-box {
+background: var(--light-pink);
+padding: 35px;
+border-radius: 20px;
+text-align: center;
+}
+
+.about-box p {
+font-size: 17px;
+}
+
+/* CARDS */
+.cards {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 25px;
+}
+
+.card {
+background: white;
+padding: 30px;
+border-radius: 20px;
+box-shadow: 0 5px 20px rgba(217,54,122,0.10);
+transition: 0.3s;
+}
+
+.card:hover {
+transform: translateY(-7px);
+box-shadow: 0 10px 25px rgba(217,54,122,0.18);
+}
+
+.card h3 {
+color: var(--dark-pink);
+margin-bottom: 12px;
+font-size: 23px;
+}
+
+/* SKILLS */
+#skills {
+background: var(--light-pink);
+}
+
+.skill {
+margin-bottom: 20px;
+}
+
+.skill-name {
+font-weight: bold;
+margin-bottom: 7px;
+}
+
+.skill-bar {
+height: 13px;
+background: white;
+border-radius: 20px;
+overflow: hidden;
+}
+
+.skill-progress {
+height: 100%;
+background: var(--pink);
+border-radius: 20px;
+}
+
+/* PROJECT */
+#projects {
+background: white;
+}
+
+.project {
+background: var(--soft-pink);
+border-left: 6px solid var(--pink);
+padding: 30px;
+border-radius: 15px;
+}
+
+.project h3 {
+color: var(--dark-pink);
+font-size: 25px;
+margin-bottom: 12px;
+}
+
+/* GOAL */
+#goal {
+background: linear-gradient(135deg, #ffe0ed, #fff5f9);
+text-align: center;
+}
+
+.goal-text {
+max-width: 750px;
+margin: auto;
+font-size: 20px;
+}
+
+/* QUOTE */
+#quote {
+background: var(--dark-pink);
+color: white;
+text-align: center;
+}
+
+blockquote {
+max-width: 750px;
+margin: auto;
+font-size: 25px;
+font-style: italic;
+}
+
+/* FOOTER */
+footer {
+background: white;
+text-align: center;
+padding: 25px;
+color: #666;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+nav {
+flex-direction: column;
+gap: 10px;
+}
+
+nav ul {
+gap: 12px;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.hero h1 {
+font-size: 38px;
+}
+
+.hero h2 {
+font-size: 20px;
+}
+
+.cards {
+grid-template-columns: 1fr;
+}
+
+.section-title {
+font-size: 30px;
+}
+
+blockquote {
+font-size: 20px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+<nav>
+<div class="logo">MY PORTFOLIO</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#hobbies">Hobbies</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#interest">Interest</a></li>
+<li><a href="#projects">Project</a></li>
+<li><a href="#goal">Goal</a></li>
+</ul>
+</nav>
+</header>
+
+
+<!-- HOME -->
+<section id="home">
+
+<div class="hero">
+
+<!-- CHANGE THIS TO YOUR PHOTO -->
+<img src="profile.jpg" alt="My Profile Picture" class="profile-picture">
+
+<!-- CHANGE YOUR NAME HERE -->
+<h1>HI, I'M LYNDSEY</h1>
+
+<h2>Computer Science Student</h2>
+
+<p>
+Welcome to my personal portfolio! This website is a small
+introduction about me, my interests, skills, hobbies,
+projects, and goals as a student.
+</p>
+
+<a href="#about" class="button">Explore My Portfolio</a>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT ME -->
+<section id="about">
+
+<div class="container">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="about-box">
+
+<p>
+Hello! I'm Lyndsey, a Computer Science student who enjoys
+learning about technology and discovering new things.
+I am still improving my skills in programming and web
+development. I believe that every project is an
+opportunity to learn, practice, and become better.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HOBBIES -->
+<section id="hobbies">
+
+<div class="container">
+
+<h2 class="section-title">My Hobbies</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🎮 Gaming</h3>
+<p>
+I enjoy playing games during my free time because
+they help me relax and have fun.
+</p>
+</div>
+
+<div class="card">
+<h3>🎵 Listening to Music</h3>
+<p>
+Music is one of the things I enjoy when studying,
+relaxing, or simply spending time by myself.
+</p>
+</div>
+
+<div class="card">
+<h3>📱 Exploring Technology</h3>
+<p>
+I like exploring different applications, websites,
+and technologies to learn how they work.
+</p>
+</div>
+
+<div class="card">
+<h3>🎬 Watching Movies</h3>
+<p>
+Watching movies is one of my favorite ways to
+relax after school and during free time.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+
+<div class="container">
+
+<h2 class="section-title">My Skills</h2>
+
+<div class="skill">
+<div class="skill-name">HTML</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 85%;"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">CSS</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 75%;"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">JavaScript</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 60%;"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">Programming</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 70%;"></div>
+</div>
+</div>
+
+<div class="skill">
+<div class="skill-name">Problem Solving</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 80%;"></div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INTEREST -->
+<section id="interest">
+
+<div class="container">
+
+<h2 class="section-title">My Interests</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>💻 Web Development</h3>
+<p>
+I am interested in creating websites and learning
+how different web technologies work together.
+</p>
+</div>
+
+<div class="card">
+<h3>🤖 Technology</h3>
+<p>
+I am interested in new technologies and how they
+can make everyday tasks easier and more efficient.
+</p>
+</div>
+
+<div class="card">
+<h3>🧠 Programming</h3>
+<p>
+Programming interests me because it allows me to
+solve problems and turn ideas into working systems.
+</p>
+</div>
+
+<div class="card">
+<h3>📚 Learning</h3>
+<p>
+I enjoy learning new skills that can help me grow
+as a student and as a future professional.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECT -->
+<section id="projects">
+
+<div class="container">
+
+<h2 class="section-title">My Project</h2>
+
+<div class="project">
+
+<h3>🌐 Personal Portfolio Website</h3>
+
+<p>
+This portfolio website is one of my projects where I
+applied my basic knowledge of HTML and CSS. It allows
+me to present my background, skills, interests, hobbies,
+and goals in one organized website. Through this project,
+I can practice designing websites while improving my
+understanding of web development.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AGILE -->
+<section id="agile">
+
+<div class="container">
+
+<h2 class="section-title">Agile</h2>
+
+<div class="about-box">
+
+<p>
+Agile is an approach to developing projects by working
+step by step and continuously improving the result.
+I value this approach because it encourages teamwork,
+flexibility, communication, and learning from mistakes.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GOAL -->
+<section id="goal">
+
+<div class="container">
+
+<h2 class="section-title">My Goal</h2>
+
+<p class="goal-text">
+My goal is to continue improving my programming and
+technical skills, gain more experience, and become a
+confident and responsible professional in the field of
+technology. I want to create useful projects that can
+help people and solve real-world problems.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- QUOTE -->
+<section id="quote">
+
+<blockquote>
+“Small progress every day can lead to something great.”
+</blockquote>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<p>
+© 2026 My Personal Portfolio | Designed with 💗
+</p>
+
+</footer>
+
+</body>
+</html>
+
